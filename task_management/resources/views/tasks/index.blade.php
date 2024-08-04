@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="empty-column-group">
-                            <button href="#" class="btn button-update">
+                            <button href="#" class="btn button-update" onClick="editFunc({{ $task->id }})">
                                 <i class="fa-solid fa-pen-to-square fs-6"></i>
                             </button>
                             <button class="btn button-delete">
