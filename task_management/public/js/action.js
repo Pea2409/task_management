@@ -82,3 +82,42 @@ $("#exampleModal").on("hidden.bs.modal", function () {
     $("#taskForm").find(".print-error-msg").find("ul").html("");
     $("#taskForm").find(".print-error-msg").css("display", "none");
 });
+
+// Delete task
+function deleteFunc(id) {
+    Swal.fire({
+        title: "Delete Task",
+        text: "Are you sure you want to delete this record?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                type: "DELETE",
+                url: "/tasks/" + id,
+                data: id,
+                headers: {
+                    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr(
+                        "content"
+                    ),
+                },
+                success: (data) => {
+                    location.reload();
+                },
+                error: function (response) {
+                    if (response.status === 403) {
+                        logError();
+                    } else if (response.status === 401) {
+                        window.location.href = "/login";
+                    }
+                },
+            });
+        } else {
+            swal("Cancelled Successfully");
+            return false;
+        }
+    });
+}

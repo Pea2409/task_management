@@ -59,7 +59,7 @@
                             <button href="#" class="btn button-update" onClick="editFunc({{ $task->id }})">
                                 <i class="fa-solid fa-pen-to-square fs-6"></i>
                             </button>
-                            <button class="btn button-delete">
+                            <button class="btn button-delete" onClick="deleteFunc({{ $task->id }})">
                                 <i class="fa-solid fa-trash-can fs-6"></i>
                             </button>
                         </div>
