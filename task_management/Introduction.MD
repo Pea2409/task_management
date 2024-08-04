@@ -11,3 +11,5 @@ INFORMATION PROJECT
 -   Spatice for permissions
 -   Breeze for login, register
 -   SweetAlert2 for notifications
+
+The functions included in the project have been completed
