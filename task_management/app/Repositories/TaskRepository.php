@@ -34,4 +34,10 @@ class TaskRepository implements TaskRepositoriesInterface
             'updated_at' => now(),
         ]);
     }
+    public function updateTask(array $data, $taskId)
+    {
+        $task = $this->task->findOrFail($taskId);
+        $task->update($data);
+        return $task;
+    }
 }

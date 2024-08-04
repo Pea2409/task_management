@@ -20,4 +20,8 @@ class TaskService
     {
         return $this->taskRepo->createTask($data);
     }
+    public function updateTask(array $data, $taskId)
+    {
+        return $this->taskRepo->updateTask($data, $taskId);
+    }
 }
