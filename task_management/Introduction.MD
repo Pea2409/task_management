@@ -13,3 +13,5 @@ INFORMATION PROJECT
 -   SweetAlert2 for notifications
 
 The functions included in the project have been completed
+
+There are no errors from production
