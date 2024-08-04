@@ -25,4 +25,13 @@ class TaskRepository implements TaskRepositoriesInterface
         }
         return $this->task->latest('id')->paginate($perPage);
     }
+    public function createTask(array $data)
+    {
+        return $this->task->create([
+            'name' => $data['name'],
+            'content' => $data['content'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    }
 }

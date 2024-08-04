@@ -17,7 +17,7 @@
                                             value="{{ old('search') }}" placeholder="Search..."type="text" />
                                     </form>
                                 </div>
-                                <button type="button" class="button-add btn">
+                                <button type="button" class="button-add btn" onclick="add()">
                                     <i class="fa-solid fa-plus fs-6"></i>
                                 </button>
                             </div>
@@ -71,6 +71,35 @@
             {{ $tasks->appends(['search' => $search])->links() }}
         </div>
 
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="taskModal">Create a new task</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="taskForm" name="taskForm" class="form-horizontal" method="POST">
+                        @csrf
+                        <div class="alert alert-danger print-error-msg" style="display:none">
+                            <ul style="padding: 0"></ul>
+                        </div>
+                        <input type="hidden" id="task_id" name="id" class="form-control">
+                        <div class="mb-3">
+                            <label class="col-form-label">Name <span class="essential">*</span></label>
+                            <input type="text" id="task_name" name="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label class="col-form-label">Content <span class="essential">*</span></label>
+                            <input type="text" id="task_content" name="content" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

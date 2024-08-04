@@ -16,4 +16,8 @@ class TaskService
     {
         return $this->taskRepo->getAllTasks($search, $perPage);
     }
+    public function createTask(array $data)
+    {
+        return $this->taskRepo->createTask($data);
+    }
 }
