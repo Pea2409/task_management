@@ -83,6 +83,15 @@ $("#exampleModal").on("hidden.bs.modal", function () {
     $("#taskForm").find(".print-error-msg").css("display", "none");
 });
 
+// Log error message
+function logError() {
+    Swal.fire({
+        icon: "error",
+        title: "Unauthorized",
+        text: "You are not authorized to perform this action.",
+    });
+}
+
 // Delete task
 function deleteFunc(id) {
     Swal.fire({
