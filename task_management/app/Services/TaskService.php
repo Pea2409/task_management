@@ -24,4 +24,8 @@ class TaskService
     {
         return $this->taskRepo->updateTask($data, $taskId);
     }
+    public function deleteTask($taskId)
+    {
+        return $this->taskRepo->deleteTask($taskId);
+    }
 }

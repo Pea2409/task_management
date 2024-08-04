@@ -47,4 +47,10 @@ class TaskController extends Controller
         alert()->success('Task updated successfully');
         return response()->json([$task], Response::HTTP_OK);
     }
+    public function destroy(Task $task)
+    {
+        $this->taskService->deleteTask($task->id);
+        alert()->success('Task deleted successfully');
+        return response()->json([$task], Response::HTTP_OK);
+    }
 }
